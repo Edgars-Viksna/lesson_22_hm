@@ -26,6 +26,13 @@ public class Main {
         Collections.sort(articles, new ComparatorByPrice());
         printArticles(articles);
 
+        System.out.println("----  Sorting by rating ----");
+        Collections.sort(articles, new ComparatorByRating());
+        printArticles(articles);
+
+
+
+
     }
 
     public static void printArticles (List<Article> articles){
