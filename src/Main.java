@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -18,6 +19,9 @@ public class Main {
 
 
 printArticles(articles);
+        System.out.println("----  Sorting by name -----");
+        Collections.sort(articles, new ComparatorByName());
+        printArticles(articles);
 
     }
 
