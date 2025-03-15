@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
        /*
@@ -6,9 +9,24 @@ public class Main {
 Для этого, очевидно, можно использовать метод Collection.sort и реализовать несколько Comparator<Person>
         */
 
-Article book = new Article("ABC", 9.99, 4.3, 100);
-        System.out.println(book.toString());
+        List<Article> articles = new ArrayList<>();
+        articles.add(new Article("Samsung", 399, 4.2, 100));
+        articles.add(new Article("OPPP", 499.99, 3.9, 29));
+        articles.add(new Article("Nokia", 199.99, 4.5, 300));
+        articles.add(new Article("iPhone 15", 700, 3.9, 40));
+        articles.add(new Article("iPhone 16", 800, 3.8, 42));
 
+
+printArticles(articles);
 
     }
+
+    public static void printArticles (List<Article> articles){
+        for (Article article : articles){
+            System.out.println(article);
+
+        }
+    }
+
+
 }
