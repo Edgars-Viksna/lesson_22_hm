@@ -30,6 +30,10 @@ public class Main {
         Collections.sort(articles, new ComparatorByRating());
         printArticles(articles);
 
+        System.out.println("----  Sorting by stock balance ----");
+        Collections.sort(articles, new ComparatorByBalance());
+        printArticles(articles);
+
 
 
 
