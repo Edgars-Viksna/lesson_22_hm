@@ -18,9 +18,12 @@ public class Main {
         articles.add(new Article("iPhone 16", 800, 3.8, 42));
 
 
-printArticles(articles);
         System.out.println("----  Sorting by name -----");
         Collections.sort(articles, new ComparatorByName());
+        printArticles(articles);
+
+        System.out.println("----  Sorting by price ----");
+        Collections.sort(articles, new ComparatorByPrice());
         printArticles(articles);
 
     }
