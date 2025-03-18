@@ -10,7 +10,7 @@ public class Main {
 
         List<Article> articles = new ArrayList<>();
         articles.add(new Article("Samsung", 399, 4.2, 100));
-        articles.add(new Article("OPPP", 499.99, 3.9, 29));
+        articles.add(new Article("OPPO", 499.99, 3.9, 29));
         articles.add(new Article("Nokia", 199.99, 4.5, 300));
         articles.add(new Article("iPhone 15", 700, 3.9, 40));
         articles.add(new Article("iPhone 16", 800, 3.8, 42));
@@ -117,6 +117,7 @@ public class Main {
 //        Collections.sort(articles, new ComparatorByBalance().reversed());
 //        printArticles(articles);
 
+        scanner.close();
     }
 //   -----------  Methods  -----------------
 
