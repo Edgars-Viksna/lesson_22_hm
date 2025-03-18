@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,9 +19,62 @@ public class Main {
         articles.add(new Article("iPhone 16", 800, 3.8, 42));
 
 
+        System.out.println("How would you like to sort the articles? " + System.lineSeparator() + " By Name: enter 1" + System.lineSeparator() +
+                " By price: enter 2 " + System.lineSeparator() + " By rating: enter 3 " + System.lineSeparator() + " By balance: enter 4");
+        Scanner scanner = new Scanner(System.in);
+        int comparatorChoice = scanner.nextInt();
+        scanner.nextLine();
+//        if (comparatorChoice <=0 || comparatorChoice>4){
+//            System.out.println("you have entered the invalid number");
+
+        System.out.println("How would you like to sort the articles? "+System.lineSeparator()+"for standardised, incremental: enter 1 "+System.lineSeparator()+"for reversing, reducing: enter 11");
+
+        int comparatorChoiceReverse = scanner.nextInt();
+        scanner.nextLine();
+        if (comparatorChoice ==1 && comparatorChoiceReverse == 1){
+            Collections.sort(articles, new ComparatorByName() );
+            printArticles(articles);
+}
+        if (comparatorChoice ==1 && comparatorChoiceReverse == 11) {
+            Collections.sort(articles, new ComparatorByName().reversed());
+            printArticles(articles);
+        }
+        if (comparatorChoice == 2 && comparatorChoiceReverse ==1){
+            Collections.sort(articles,new ComparatorByPrice());
+            printArticles(articles);
+        }
+        if (comparatorChoice == 2 && comparatorChoiceReverse == 11){
+            Collections.sort(articles, new ComparatorByPrice().reversed());
+        }
+
+        if (comparatorChoice == 3 && comparatorChoiceReverse == 1){
+            Collections.sort(articles, new ComparatorByRating());
+            printArticles(articles);
+        }
+        if (comparatorChoice == 3 && comparatorChoiceReverse == 11){
+            Collections.sort(articles, new ComparatorByRating().reversed());
+            printArticles(articles);
+        }
+        if (comparatorChoice == 4 && comparatorChoiceReverse == 1){
+            Collections.sort(articles, new ComparatorByBalance());
+            printArticles(articles);
+        }
+        if (comparatorChoice == 4 && comparatorChoiceReverse == 11){
+            Collections.sort(articles, new ComparatorByBalance().reversed());
+            printArticles(articles);
+        }
+        else {
+            System.out.println("please proof your choices");
+        }
+
+        System.out.println("---  tests -------");
+
         System.out.println("----  Sorting by name -----");
         Collections.sort(articles, new ComparatorByName());
         printArticles(articles);
+
+        System.out.println("-----  Sorting by name from method from Articles");
+
 
         System.out.println("----  Sorting by price ----");
         Collections.sort(articles, new ComparatorByPrice());
@@ -31,7 +85,7 @@ public class Main {
         printArticles(articles);
 
         System.out.println("----  Sorting by stock balance ----");
-        Collections.sort(articles, new ComparatorByBalance());
+        Collections.sort(articles, new ComparatorByBalance().reversed());
         printArticles(articles);
 
 

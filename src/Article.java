@@ -1,3 +1,7 @@
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class Article {
 
     private String title;
@@ -35,6 +39,11 @@ public class Article {
                 ", price " + price +
                 ", rating " + rating +
                 ", stock balance " + balance ;
+    }
+
+    public static void sortByName (List<Article> articles) {
+        Collections.sort(articles, new ComparatorByName());
+        System.out.println(articles.toString());
     }
 
 
