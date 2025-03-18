@@ -45,6 +45,7 @@ public class Main {
         }
         if (comparatorChoice == 2 && comparatorChoiceReverse == 11){
             Collections.sort(articles, new ComparatorByPrice().reversed());
+            printArticles(articles);
         }
 
         if (comparatorChoice == 3 && comparatorChoiceReverse == 1){
@@ -63,40 +64,39 @@ public class Main {
             Collections.sort(articles, new ComparatorByBalance().reversed());
             printArticles(articles);
         }
-        else {
-            System.out.println("please proof your choices");
+        if (comparatorChoice > 4 || comparatorChoice < 1 ){
+            System.out.println("Please enter the correct sorting choice");
+        }
+        if (comparatorChoiceReverse != 1 || comparatorChoiceReverse !=11){
+            System.out.println("Please enter the correct order choice");
         }
 
-        System.out.println("---  tests -------");
-
-        System.out.println("----  Sorting by name -----");
-        Collections.sort(articles, new ComparatorByName());
-        printArticles(articles);
-
-        System.out.println("-----  Sorting by name from method from Articles");
-
-
-        System.out.println("----  Sorting by price ----");
-        Collections.sort(articles, new ComparatorByPrice());
-        printArticles(articles);
-
-        System.out.println("----  Sorting by rating ----");
-        Collections.sort(articles, new ComparatorByRating());
-        printArticles(articles);
-
-        System.out.println("----  Sorting by stock balance ----");
-        Collections.sort(articles, new ComparatorByBalance().reversed());
-        printArticles(articles);
-
-
-
+//        System.out.println("---  tests -------");
+//
+//        System.out.println("----  Sorting by name -----");
+//        Collections.sort(articles, new ComparatorByName());
+//        printArticles(articles);
+//
+//        System.out.println("-----  Sorting by name from method from Articles");
+//
+//        System.out.println("----  Sorting by price ----");
+//        Collections.sort(articles, new ComparatorByPrice());
+//        printArticles(articles);
+//
+//        System.out.println("----  Sorting by rating ----");
+//        Collections.sort(articles, new ComparatorByRating());
+//        printArticles(articles);
+//
+//        System.out.println("----  Sorting by stock balance ----");
+//        Collections.sort(articles, new ComparatorByBalance().reversed());
+//        printArticles(articles);
 
     }
+//   -----------  Methods  -----------------
 
     public static void printArticles (List<Article> articles){
         for (Article article : articles){
             System.out.println(article);
-
         }
     }
 
