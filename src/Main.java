@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,49 +24,71 @@ public class Main {
 //        if (comparatorChoice <=0 || comparatorChoice>4){
 //            System.out.println("you have entered the invalid number");
 
-        System.out.println("How would you like to sort the articles? "+System.lineSeparator()+"for standardised, incremental: enter 1 "+System.lineSeparator()+"for reversing, reducing: enter 11");
+        System.out.println("How would you like to sort the articles? " + System.lineSeparator() + "for standardised, incremental: enter 1 " + System.lineSeparator() + "for reversing, reducing: enter 11");
 
         int comparatorChoiceReverse = scanner.nextInt();
         scanner.nextLine();
-        if (comparatorChoice ==1 && comparatorChoiceReverse == 1){
-            Collections.sort(articles, new ComparatorByName() );
+        if (comparatorChoice == 1 && comparatorChoiceReverse == 1) {
+            Collections.sort(articles, new ComparatorByName());
             printArticles(articles);
-}
-        if (comparatorChoice ==1 && comparatorChoiceReverse == 11) {
+        }
+        if (comparatorChoice == 1 && comparatorChoiceReverse == 11) {
             Collections.sort(articles, new ComparatorByName().reversed());
             printArticles(articles);
         }
-        if (comparatorChoice == 2 && comparatorChoiceReverse ==1){
-            Collections.sort(articles,new ComparatorByPrice());
+        if (comparatorChoice == 2 && comparatorChoiceReverse == 1) {
+            Collections.sort(articles, new ComparatorByPrice());
             printArticles(articles);
         }
-        if (comparatorChoice == 2 && comparatorChoiceReverse == 11){
+        if (comparatorChoice == 2 && comparatorChoiceReverse == 11) {
             Collections.sort(articles, new ComparatorByPrice().reversed());
             printArticles(articles);
         }
 
-        if (comparatorChoice == 3 && comparatorChoiceReverse == 1){
+        if (comparatorChoice == 3 && comparatorChoiceReverse == 1) {
             Collections.sort(articles, new ComparatorByRating());
             printArticles(articles);
         }
-        if (comparatorChoice == 3 && comparatorChoiceReverse == 11){
+        if (comparatorChoice == 3 && comparatorChoiceReverse == 11) {
             Collections.sort(articles, new ComparatorByRating().reversed());
             printArticles(articles);
         }
-        if (comparatorChoice == 4 && comparatorChoiceReverse == 1){
+        if (comparatorChoice == 4 && comparatorChoiceReverse == 1) {
             Collections.sort(articles, new ComparatorByBalance());
             printArticles(articles);
         }
-        if (comparatorChoice == 4 && comparatorChoiceReverse == 11){
+        if (comparatorChoice == 4 && comparatorChoiceReverse == 11) {
             Collections.sort(articles, new ComparatorByBalance().reversed());
             printArticles(articles);
         }
-        if (comparatorChoice > 4 || comparatorChoice < 1 ){
+        if (comparatorChoice > 4 || comparatorChoice < 1) {
             System.out.println("Please enter the correct sorting choice");
         }
-        if (comparatorChoiceReverse != 1 || comparatorChoiceReverse !=11){
+        if (comparatorChoiceReverse != 1 || comparatorChoiceReverse != 11) {
             System.out.println("Please enter the correct order choice");
         }
+
+        //  ----------switch implementation--------
+
+        //Collections.sort(list, comparator);
+
+        Comparator<Article> comparator = switch (comparatorChoice) {
+            case 1:
+                new ComparatorByName();
+            case 2:
+                new ComparatorByPrice();
+            case 3:
+                new ComparatorByRating();
+            case 4:
+                new ComparatorByBalance();
+
+                default -> throw new IllegalStateException("Unexpected value: " + comparatorChoice);
+        };
+
+
+
+
+
 
 //        System.out.println("---  tests -------");
 //
